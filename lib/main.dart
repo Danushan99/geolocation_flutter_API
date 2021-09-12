@@ -16,7 +16,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String latitudeData = "";
+  String latitudeData = "";//declear values
   String longtudeData = "";
 
   @override
@@ -30,10 +30,11 @@ class _HomeScreenState extends State<HomeScreen> {
     final Geoposition = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
 
-    setState(() {
+    setState(() { //save Data
       latitudeData = ' ${Geoposition.latitude}';
       longtudeData = ' ${Geoposition.longitude}';
-    });
+    }
+    );
   }
 
   @override
@@ -42,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(),
       body: Column(
         children: [
+          Text("****** Your location is ******"),
           Text(latitudeData),
           Text(longtudeData),
         ],
